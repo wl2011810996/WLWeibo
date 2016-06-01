@@ -1,0 +1,90 @@
+//
+//  PrefixHeader.pch
+//  王力新浪微博2016
+//
+//  Created by 王力 on 16/3/8.
+//  Copyright © 2016年 王力. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "UIImage+Extension.h"
+#import "UIView+Extension.h"
+#import "UIBarButtonItem+Extension.h"
+
+// 颜色
+#define WLColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+
+// 随机色
+#define WLRandomColor WLColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+
+//#define KRandomColor [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1]
+
+#define IOS7 [[UIDevice currentDevice].systemVersion doubleValue]>=7.0
+#define WLNavigationTitleFont [UIFont systemFontOfSize:20]
+
+#ifdef DEBUG // 调试状态, 打开LOG功能
+#define WLLog(...) NSLog(__VA_ARGS__)
+#else // 发布状态, 关闭LOG功能
+#define WLLog(...)
+#endif
+
+// 全局背景色
+#define WLGlobalBg WLColor(211, 211, 211)
+
+// 是否为4inch
+#define FourInch ([UIScreen mainScreen].bounds.size.height == 568.0)
+
+#define WLScreenW [UIScreen mainScreen].bounds.size.width
+
+// cell之间的间距
+#define WLStatusCellMargin 10
+
+// cell的内边距
+#define WLStatusCellInset 10
+
+// 原创微博昵称字体
+#define WLStatusOrginalNameFont [UIFont systemFontOfSize:14]
+// 原创微博时间字体
+#define WLStatusOrginalTimeFont [UIFont systemFontOfSize:12]
+// 原创微博来源字体
+#define WLStatusOrginalSourceFont WLStatusOrginalTimeFont
+// 原创微博正文字体
+#define WLStatusOrginalTextFont [UIFont systemFontOfSize:15]
+
+// 转发微博昵称字体
+#define WLStatusRetweetedNameFont WLStatusOrginalNameFont
+// 转发微博正文字体
+#define WLStatusRetweetedTextFont WLStatusOrginalTextFont
+
+#define KWeiBoAppKey  @"1473511364"
+#define KWeiBoAppSecret @"ec1639cc72e82e9a5bacae0cf205e7c6"
+#define KWeiboUrl @"http://www.baidu.com"
+
+/** 表情相关 */
+// 表情的最大行数
+#define WLEmotionMaxRows 3
+// 表情的最大列数
+#define WLEmotionMaxCols 7
+// 每页最多显示多少个表情
+#define WLEmotionMaxCountPerPage (WLEmotionMaxRows * WLEmotionMaxCols - 1)
+
+// 通知
+// 表情选中的通知
+#define WLEmotionDidSelectedNotification @"WLEmotionDidSelectedNotification"
+// 点击删除按钮的通知
+#define WLEmotionDidDeletedNotification @"WLEmotionDidDeletedNotification"
+// 通知里面取出表情用的key
+#define WLSelectedEmotion @"WLSelectedEmotion"
+
+// 链接选中的通知
+#define WLLinkDidSelectedNotification @"WLLinkDidSelectedNotification"
+
+// 富文本里面出现的链接
+#define WLLinkText @"WLLinkText"
+
+#endif /* PrefixHeader_pch */
